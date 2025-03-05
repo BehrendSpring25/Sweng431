@@ -54,7 +54,7 @@ public class Graph {
 
 
     void findAllPaths(int start, int end, List<Integer> path, List<List<Integer>> paths, int maxDepth) {
-        // Stop if the path gets too long
+        //stop if the path gets too long
         if (path.size() > maxDepth) {
             return;
         }
