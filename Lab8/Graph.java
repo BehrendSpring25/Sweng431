@@ -80,21 +80,24 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        int V = 10;
+        int V = 13;
         Graph g = new Graph(V);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
-        g.addEdge(2, 6);
         g.addEdge(2, 3);
-        g.addEdge(6, 8);
-        g.addEdge(6, 7);
-        g.addEdge(3, 5);
         g.addEdge(3, 4);
-        g.addEdge(8, 1);
-        g.addEdge(7, 1);
-        g.addEdge(5, 1);
-        g.addEdge(4, 1);
-        g.addEdge(1, 9);
+        g.addEdge(4, 5);
+        g.addEdge(4, 8);
+        g.addEdge(5, 6);
+        g.addEdge(5, 7);
+        g.addEdge(6, 11);
+        g.addEdge(7, 11);
+        g.addEdge(8, 9);
+        g.addEdge(8, 10);
+        g.addEdge(9, 11);
+        g.addEdge(10, 11);
+        g.addEdge(11, 3);
+        g.addEdge(3, 12);
 
         g.printAdjacencyList();
         System.out.println("Vertices: " + V);
@@ -107,15 +110,15 @@ public class Graph {
         for (int i = 0; i < V; i++){
             if ((inDegree[i] + outDegree[i]) > max){
                 max = inDegree[i] + outDegree[i];
-                maxNode = i + 1;
+                maxNode = i;
             }
             System.out.println(i + "\t" + inDegree[i] + "\t" + outDegree[i]);
         }
 
         System.out.println("Node with most influence: " + maxNode);
 
-        List<List<Integer>> paths = g.getAllPaths(0, 9, 7);
-        System.out.println("All paths from 0 to 9 (with max depth 7):");
+        List<List<Integer>> paths = g.getAllPaths(0, 12, 10);
+        System.out.println("All paths from 0 to 9 (with max depth 10):");
         for (List<Integer> path : paths) {
             System.out.println(path);
         }
